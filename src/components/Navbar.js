@@ -19,6 +19,11 @@ function Navbar() {
           </NavLink>
         </li>
         <li>
+          <NavLink to="/education" className={({ isActive }) => isActive ? `${linkClass} ${activeClass}` : linkClass}>
+            Education
+          </NavLink>
+        </li>
+        <li>
           <NavLink to="/experience" className={({ isActive }) => isActive ? `${linkClass} ${activeClass}` : linkClass}>
             Experience
           </NavLink>
@@ -32,13 +37,11 @@ function Navbar() {
           <NavLink to="/skills" className={({ isActive }) => isActive ? `${linkClass} ${activeClass}` : linkClass}>
             Skills & Interests
           </NavLink>
+          <NavLink to="/contact" className={...}>Contact</NavLink>
+
            
         </li>
-        <li>
-          <NavLink to="/education" className={({ isActive }) => isActive ? `${linkClass} ${activeClass}` : linkClass}>
-            Education
-          </NavLink>
-        </li>
+        
       </ul>
     </nav>
   );
