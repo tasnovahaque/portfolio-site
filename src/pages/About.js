@@ -9,9 +9,10 @@ import {
   BookOpen,
   Star,
   TrendingUp,
-  Users,
+  
   MapPin,
-  Calendar
+  Calendar,
+  ArrowLeft,
 } from 'lucide-react';
 
 const AboutMe = () => {
@@ -25,7 +26,7 @@ const AboutMe = () => {
   const sections = [
     { id: 'journey', label: 'My Journey', icon: BookOpen },
     { id: 'education', label: 'Education', icon: GraduationCap },
-    { id: 'experience', label: 'Experience', icon: Users },
+    
     { id: 'passion', label: 'Passion & Goals', icon: Target }
   ];
 
@@ -53,12 +54,7 @@ const AboutMe = () => {
     }
   ];
 
-  const skills = [
-    { category: 'AI/ML', items: ['Machine Learning', 'Deep Learning', 'Explainable AI', 'SHAP & LIME'], color: 'purple' },
-    { category: 'Programming', items: ['Python', 'C/C++', 'MATLAB', 'PHP-Laravel'], color: 'blue' },
-    { category: 'Tools & Tech', items: ['Data Analysis', 'Web Development', 'Excel', 'PowerPoint'], color: 'emerald' },
-    { category: 'Languages', items: ['Bengali (Native)', 'English (Fluent)'], color: 'orange' }
-  ];
+  
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
@@ -67,45 +63,59 @@ const AboutMe = () => {
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]"></div>
       
       {/* Floating Elements */}
-      <div className="absolute top-20 left-20 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-20 right-20 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      <div className="absolute top-16 left-4 w-32 h-32 sm:w-40 sm:h-40 md:top-20 md:left-20 md:w-64 md:h-64 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-16 right-4 w-40 h-40 sm:w-48 sm:h-48 md:bottom-20 md:right-20 md:w-80 md:h-80 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
 
-      <div className="relative z-10 py-20 px-6 sm:px-20">
+      <div className="relative z-10 py-8 sm:py-12 lg:py-20 px-4 sm:px-6 lg:px-20">
         <div className="max-w-6xl mx-auto">
           
+          {/* Back Button */}
+          <button
+            onClick={() => window.history.back()}
+            className="flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 mb-6 sm:mb-8 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white hover:bg-white/20 transition-all duration-300 group text-sm sm:text-base"
+          >
+            <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 group-hover:-translate-x-1 transition-transform duration-300" />
+            <span className="font-medium">Back</span>
+          </button>
+          
           {/* Header */}
-          <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h1 className="text-5xl sm:text-6xl font-bold text-white mb-6">
+          <div className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 px-2">
               About <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Me</span>
             </h1>
-            <div className="flex items-center justify-center gap-4 text-purple-300 mb-8">
-              <MapPin className="w-5 h-5" />
-              <span>Dhaka, Bangladesh</span>
-              <span>•</span>
-              <GraduationCap className="w-5 h-5" />
-              <span>CSE Graduate 2025</span>
+            <div className="flex flex-col xs:flex-row items-center justify-center gap-2 xs:gap-4 text-purple-300 mb-6 sm:mb-8 text-sm sm:text-base">
+              <div className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span>Dhaka, Bangladesh</span>
+              </div>
+              <span className="hidden xs:inline">•</span>
+              <div className="flex items-center gap-2">
+                <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span>CSE Graduate 2025</span>
+              </div>
             </div>
-            <p className="text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto px-4">
               A passionate Computer Science graduate with a deep fascination for transforming complex data into meaningful insights through AI and Machine Learning.
             </p>
           </div>
 
           {/* Navigation Tabs */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12 px-2">
             {sections.map((section) => {
               const IconComponent = section.icon;
               return (
                 <button
                   key={section.id}
                   onClick={() => setActiveSection(section.id)}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                  className={`flex items-center gap-2 px-3 py-2 sm:px-6 sm:py-3 rounded-xl font-semibold transition-all duration-300 text-sm sm:text-base ${
                     activeSection === section.id
                       ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg'
                       : 'bg-white/10 text-gray-300 hover:bg-white/20'
                   }`}
                 >
-                  <IconComponent className="w-5 h-5" />
-                  {section.label}
+                  <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="hidden xs:inline">{section.label}</span>
+                  <span className="xs:hidden">{section.label.split(' ')[0]}</span>
                 </button>
               );
             })}
@@ -116,15 +126,15 @@ const AboutMe = () => {
             
             {/* My Journey */}
             {activeSection === 'journey' && (
-              <div className="space-y-8">
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
-                      <Lightbulb className="w-6 h-6 text-white" />
+              <div className="space-y-6 sm:space-y-8">
+                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 sm:p-6 lg:p-8">
+                  <div className="flex items-center gap-3 mb-4 sm:mb-6">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
+                      <Lightbulb className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
-                    <h2 className="text-2xl font-bold text-white">My Story</h2>
+                    <h2 className="text-xl sm:text-2xl font-bold text-white">My Story</h2>
                   </div>
-                  <div className="text-gray-300 leading-relaxed space-y-4">
+                  <div className="text-gray-300 leading-relaxed space-y-3 sm:space-y-4 text-sm sm:text-base">
                     <p>
                       My journey in Computer Science began with curiosity and has evolved into a passionate pursuit of artificial intelligence and machine learning. As a dedicated learner with a strong drive for growth and excellence, I've always been eager to explore new ideas, embrace challenges, and expand my knowledge.
                     </p>
@@ -138,23 +148,23 @@ const AboutMe = () => {
                 </div>
 
                 {/* Achievements Timeline */}
-                <div className="space-y-6">
-                  <h3 className="text-2xl font-bold text-white text-center mb-8">Key Achievements</h3>
-                  <div className="grid gap-6">
+                <div className="space-y-4 sm:space-y-6">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white text-center mb-6 sm:mb-8">Key Achievements</h3>
+                  <div className="grid gap-4 sm:gap-6">
                     {achievements.map((achievement, index) => {
                       const IconComponent = achievement.icon;
                       return (
-                        <div key={index} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300">
-                          <div className="flex items-start gap-4">
-                            <div className={`w-12 h-12 bg-gradient-to-r ${achievement.color} rounded-lg flex items-center justify-center flex-shrink-0`}>
-                              <IconComponent className="w-6 h-6 text-white" />
+                        <div key={index} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 sm:p-6 hover:bg-white/10 transition-all duration-300">
+                          <div className="flex items-start gap-3 sm:gap-4">
+                            <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${achievement.color} rounded-lg flex items-center justify-center flex-shrink-0`}>
+                              <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                             </div>
-                            <div className="flex-1">
-                              <div className="flex items-center gap-3 mb-2">
-                                <span className="text-sm bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full">{achievement.year}</span>
-                                <h4 className="text-lg font-semibold text-white">{achievement.title}</h4>
+                            <div className="flex-1 min-w-0">
+                              <div className="flex flex-col xs:flex-row xs:items-center gap-2 xs:gap-3 mb-2">
+                                <span className="text-xs sm:text-sm bg-purple-500/20 text-purple-300 px-2 sm:px-3 py-1 rounded-full w-fit">{achievement.year}</span>
+                                <h4 className="text-base sm:text-lg font-semibold text-white break-words">{achievement.title}</h4>
                               </div>
-                              <p className="text-gray-300">{achievement.description}</p>
+                              <p className="text-gray-300 text-sm sm:text-base">{achievement.description}</p>
                             </div>
                           </div>
                         </div>
@@ -167,119 +177,73 @@ const AboutMe = () => {
 
             {/* Education */}
             {activeSection === 'education' && (
-              <div className="space-y-6">
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center">
-                      <GraduationCap className="w-6 h-6 text-white" />
+              <div className="space-y-4 sm:space-y-6">
+                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 sm:p-6 lg:p-8">
+                  <div className="flex items-center gap-3 mb-4 sm:mb-6">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center">
+                      <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
-                    <h2 className="text-2xl font-bold text-white">Educational Background</h2>
+                    <h2 className="text-xl sm:text-2xl font-bold text-white">Educational Background</h2>
                   </div>
 
-                  <div className="space-y-6">
-                    <div className="border-l-4 border-purple-500 pl-6 pb-6">
-                      <div className="flex items-center gap-3 mb-2">
+                  <div className="space-y-4 sm:space-y-6">
+                    <div className="border-l-4 border-purple-500 pl-4 sm:pl-6 pb-4 sm:pb-6">
+                      <div className="flex flex-col xs:flex-row xs:items-center gap-2 xs:gap-3 mb-2">
                         <Calendar className="w-4 h-4 text-purple-400" />
-                        <span className="text-purple-400 font-semibold">2021 – 2025</span>
+                        <span className="text-purple-400 font-semibold text-sm sm:text-base">2021 – 2025</span>
                       </div>
-                      <h3 className="text-xl font-bold text-white mb-2">Bachelor of Computer Science and Engineering</h3>
-                      <p className="text-gray-300 mb-2">East West University, Dhaka, Bangladesh</p>
-                      <div className="flex items-center gap-4">
-                        <span className="bg-green-500/20 text-green-300 px-3 py-1 rounded-full text-sm">CGPA: 3.81/4.00</span>
-                        <span className="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm">Credits: 140/140</span>
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-2">Bachelor of Computer Science and Engineering</h3>
+                      <p className="text-gray-300 mb-2 text-sm sm:text-base">East West University, Dhaka, Bangladesh</p>
+                      <div className="flex flex-col xs:flex-row gap-2 xs:gap-4">
+                        <span className="bg-green-500/20 text-green-300 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm w-fit">CGPA: 3.81/4.00</span>
+                        <span className="bg-blue-500/20 text-blue-300 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm w-fit">Credits: 140/140</span>
                       </div>
                     </div>
 
-                    <div className="border-l-4 border-blue-500 pl-6 pb-6">
-                      <div className="flex items-center gap-3 mb-2">
+                    <div className="border-l-4 border-blue-500 pl-4 sm:pl-6 pb-4 sm:pb-6">
+                      <div className="flex flex-col xs:flex-row xs:items-center gap-2 xs:gap-3 mb-2">
                         <Calendar className="w-4 h-4 text-blue-400" />
-                        <span className="text-blue-400 font-semibold">2017 – 2019</span>
+                        <span className="text-blue-400 font-semibold text-sm sm:text-base">2017 – 2019</span>
                       </div>
-                      <h3 className="text-xl font-bold text-white mb-2">Higher Secondary Certificate (HSC)</h3>
-                      <p className="text-gray-300 mb-2">Comilla Govt. Women's College, Cumilla, Bangladesh</p>
-                      <span className="bg-green-500/20 text-green-300 px-3 py-1 rounded-full text-sm">GPA: 4.67/5.00</span>
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-2">Higher Secondary Certificate (HSC)</h3>
+                      <p className="text-gray-300 mb-2 text-sm sm:text-base">Comilla Govt. Women's College, Cumilla, Bangladesh</p>
+                      <span className="bg-green-500/20 text-green-300 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">GPA: 4.67/5.00</span>
                     </div>
 
-                    <div className="border-l-4 border-orange-500 pl-6">
-                      <div className="flex items-center gap-3 mb-2">
+                    <div className="border-l-4 border-orange-500 pl-4 sm:pl-6">
+                      <div className="flex flex-col xs:flex-row xs:items-center gap-2 xs:gap-3 mb-2">
                         <Calendar className="w-4 h-4 text-orange-400" />
-                        <span className="text-orange-400 font-semibold">2014 – 2017</span>
+                        <span className="text-orange-400 font-semibold text-sm sm:text-base">2014 – 2017</span>
                       </div>
-                      <h3 className="text-xl font-bold text-white mb-2">Secondary School Certificate</h3>
-                      <p className="text-gray-300 mb-2">Amratali C.Ali High School, Cumilla, Bangladesh</p>
-                      <span className="bg-green-500/20 text-green-300 px-3 py-1 rounded-full text-sm">GPA: 4.58/5.00</span>
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-2">Secondary School Certificate</h3>
+                      <p className="text-gray-300 mb-2 text-sm sm:text-base">Amratali C.Ali High School, Cumilla, Bangladesh</p>
+                      <span className="bg-green-500/20 text-green-300 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">GPA: 4.58/5.00</span>
                     </div>
                   </div>
                 </div>
               </div>
             )}
 
-            {/* Experience */}
-            {activeSection === 'experience' && (
-              <div className="space-y-6">
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center">
-                      <Users className="w-6 h-6 text-white" />
-                    </div>
-                    <h2 className="text-2xl font-bold text-white">Professional Experience</h2>
-                  </div>
+            
 
-                  <div className="space-y-6">
-                    <div className="border-l-4 border-purple-500 pl-6 pb-6">
-                      <div className="flex items-center gap-3 mb-2">
-                        <Calendar className="w-4 h-4 text-purple-400" />
-                        <span className="text-purple-400 font-semibold">Fall 2024</span>
-                      </div>
-                      <h3 className="text-xl font-bold text-white mb-2">Undergraduate Teaching Assistant</h3>
-                      <p className="text-gray-300 mb-3">Department of CSE, East West University</p>
-                      <p className="text-gray-400">Currently mentoring students in advanced computing topics and research, sharing knowledge in computer science fundamentals and emerging technologies.</p>
-                    </div>
-
-                    <div className="border-l-4 border-blue-500 pl-6">
-                      <div className="flex items-center gap-3 mb-2">
-                        <Calendar className="w-4 h-4 text-blue-400" />
-                        <span className="text-blue-400 font-semibold">Summer 2023 to Summer 2024</span>
-                      </div>
-                      <h3 className="text-xl font-bold text-white mb-2">Undergraduate Teaching Assistant</h3>
-                      <p className="text-gray-300 mb-3">Department of MPS, East West University</p>
-                      <p className="text-gray-400">Served for three consecutive semesters, supporting students in mathematical and statistical concepts crucial for data science and machine learning applications.</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Skills Grid */}
-                <div className="grid md:grid-cols-2 gap-6">
-                  {skills.map((skillGroup, index) => (
-                    <div key={index} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
-                      <h3 className={`text-lg font-bold text-${skillGroup.color}-400 mb-4`}>{skillGroup.category}</h3>
-                      <div className="flex flex-wrap gap-2">
-                        {skillGroup.items.map((skill, skillIndex) => (
-                          <span
-                            key={skillIndex}
-                            className={`bg-${skillGroup.color}-500/20 text-${skillGroup.color}-300 px-3 py-1 rounded-full text-sm`}
-                          >
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
+               
+                         
+                       
+                      
+                    
+                
 
             {/* Passion & Goals */}
             {activeSection === 'passion' && (
-              <div className="space-y-8">
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-rose-500 rounded-lg flex items-center justify-center">
-                      <Brain className="w-6 h-6 text-white" />
+              <div className="space-y-6 sm:space-y-8">
+                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 sm:p-6 lg:p-8">
+                  <div className="flex items-center gap-3 mb-4 sm:mb-6">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-pink-500 to-rose-500 rounded-lg flex items-center justify-center">
+                      <Brain className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
-                    <h2 className="text-2xl font-bold text-white">My Passion</h2>
+                    <h2 className="text-xl sm:text-2xl font-bold text-white">My Passion</h2>
                   </div>
-                  <div className="text-gray-300 leading-relaxed space-y-4">
+                  <div className="text-gray-300 leading-relaxed space-y-3 sm:space-y-4 text-sm sm:text-base">
                     <p>
                       My passion lies in the intersection of artificial intelligence and real-world problem solving. I'm particularly fascinated by <strong className="text-purple-400">explainable AI</strong> – the idea that machine learning models should not be mysterious black boxes, but transparent systems that we can understand and trust.
                     </p>
@@ -289,36 +253,36 @@ const AboutMe = () => {
                   </div>
                 </div>
 
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center">
-                      <Target className="w-6 h-6 text-white" />
+                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 sm:p-6 lg:p-8">
+                  <div className="flex items-center gap-3 mb-4 sm:mb-6">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center">
+                      <Target className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
-                    <h2 className="text-2xl font-bold text-white">Career Goals</h2>
+                    <h2 className="text-xl sm:text-2xl font-bold text-white">Career Goals</h2>
                   </div>
-                  <div className="text-gray-300 leading-relaxed space-y-4">
+                  <div className="text-gray-300 leading-relaxed space-y-3 sm:space-y-4 text-sm sm:text-base">
                     <p>
                       I'm seeking <strong className="text-emerald-400">research-intensive or engineering-focused roles</strong> that allow me to blend algorithmic efficiency with impactful real-world applications. My goal is to contribute to projects that push the boundaries of what's possible with AI while maintaining ethical and interpretable approaches.
                     </p>
                     <p>
                       I'm particularly interested in roles involving:
                     </p>
-                    <div className="grid md:grid-cols-2 gap-4 mt-4">
-                      <div className="flex items-center gap-3 p-4 bg-purple-500/10 rounded-lg">
-                        <Code className="w-5 h-5 text-purple-400" />
-                        <span>ML Engineering & Model Development</span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-4">
+                      <div className="flex items-center gap-2 sm:gap-3 p-3 sm:p-4 bg-purple-500/10 rounded-lg">
+                        <Code className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400 flex-shrink-0" />
+                        <span className="text-sm sm:text-base">ML Engineering & Model Development</span>
                       </div>
-                      <div className="flex items-center gap-3 p-4 bg-blue-500/10 rounded-lg">
-                        <Brain className="w-5 h-5 text-blue-400" />
-                        <span>AI Research & Innovation</span>
+                      <div className="flex items-center gap-2 sm:gap-3 p-3 sm:p-4 bg-blue-500/10 rounded-lg">
+                        <Brain className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 flex-shrink-0" />
+                        <span className="text-sm sm:text-base">AI Research & Innovation</span>
                       </div>
-                      <div className="flex items-center gap-3 p-4 bg-emerald-500/10 rounded-lg">
-                        <TrendingUp className="w-5 h-5 text-emerald-400" />
-                        <span>Data Science & Analytics</span>
+                      <div className="flex items-center gap-2 sm:gap-3 p-3 sm:p-4 bg-emerald-500/10 rounded-lg">
+                        <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400 flex-shrink-0" />
+                        <span className="text-sm sm:text-base">Data Science & Analytics</span>
                       </div>
-                      <div className="flex items-center gap-3 p-4 bg-orange-500/10 rounded-lg">
-                        <Lightbulb className="w-5 h-5 text-orange-400" />
-                        <span>Explainable AI Solutions</span>
+                      <div className="flex items-center gap-2 sm:gap-3 p-3 sm:p-4 bg-orange-500/10 rounded-lg">
+                        <Lightbulb className="w-4 h-4 sm:w-5 sm:h-5 text-orange-400 flex-shrink-0" />
+                        <span className="text-sm sm:text-base">Explainable AI Solutions</span>
                       </div>
                     </div>
                   </div>

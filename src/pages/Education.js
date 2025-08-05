@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { 
   GraduationCap, 
+  ArrowLeft,
   BookOpen, 
   Calendar,
   MapPin,
   Star,
   Trophy,
-  
   Target,
-  CheckCircle
+  CheckCircle,
+  
 } from 'lucide-react';
-
 
 const Education = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -114,18 +114,27 @@ const Education = () => {
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]"></div>
       
       {/* Floating Elements */}
-      <div className="absolute top-20 left-20 w-64 h-64 bg-emerald-500/20 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-20 right-20 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      <div className="absolute top-16 left-4 w-32 h-32 sm:w-40 sm:h-40 md:top-20 md:left-20 md:w-64 md:h-64 bg-emerald-500/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-16 right-4 w-40 h-40 sm:w-48 sm:h-48 md:bottom-20 md:right-20 md:w-80 md:h-80 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
 
-      <div className="relative z-10 py-20 px-6 sm:px-20">
+      <div className="relative z-10 py-8 sm:py-12 lg:py-20 px-4 sm:px-6 lg:px-20">
         <div className="max-w-6xl mx-auto">
           
+          {/* Back Button */}
+<button
+  onClick={() => window.history.back()}
+  className="flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 mb-6 sm:mb-8 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white hover:bg-white/20 transition-all duration-300 group text-sm sm:text-base"
+>
+  <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 group-hover:-translate-x-1 transition-transform duration-300" />
+  <span className="font-medium">Back</span>
+</button>
+          
           {/* Header */}
-          <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h1 className="text-5xl sm:text-6xl font-bold text-white mb-6">
+          <div className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 px-2">
               Educational <span className="bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">Journey</span>
             </h1>
-            <p className="text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto px-4">
               A foundation built on academic excellence, continuous learning, and a passion for computer science and artificial intelligence.
             </p>
           </div>
