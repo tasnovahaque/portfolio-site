@@ -12,7 +12,7 @@ import Contact from './pages/Contact';
 function App() {
   return (
     <Router>
-      <div className="font-sans min-h-screen bg-gradient-to-br from-[#fdf6f0] via-[#e8f0ff] to-[#f6f0fd] text-gray-800 p-6 md:p-12">
+      <div className="font-sans w-full h-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-gray-800">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
