@@ -9,11 +9,12 @@ import {
   Calendar,
   ArrowLeft,
   Zap,
- 
+  Smartphone,
   Music,
   Car,
   DollarSign,
- 
+  Network,
+  Cpu,
   
   Github,
   
@@ -38,10 +39,13 @@ const Projects = () => {
   }, []);
 
   const projectCategories = [
-    { id: 'all', label: 'All Projects', count: 9 },
+    { id: 'all', label: 'All Projects', count: 13 },
     { id: 'ai-ml', label: 'AI & Machine Learning', count: 6 },
     { id: 'web', label: 'Web Development', count: 2 },
-    { id: 'systems', label: 'Systems & OS', count: 1 }
+    { id: 'mobile', label: 'Mobile Development', count: 1 },
+    { id: 'systems', label: 'Systems & OS', count: 1 },
+    { id: 'networking', label: 'Networking', count: 1 },
+    { id: 'hardware', label: 'Hardware & Electronics', count: 2 }
   ];
 
   const projects = [
@@ -202,6 +206,33 @@ const Projects = () => {
       complexity: 'High'
     },
     {
+      id: 'healbee-app',
+      title: 'Healbee: A Comprehensive Healthcare Service Application',
+      category: 'mobile',
+      featured: true,
+      shortDescription: 'Android healthcare application providing integrated healthcare services and seamless healthcare management.',
+      description: 'Developed Healbee, a comprehensive Android healthcare application using Java to address the problem of fragmented healthcare services. The app provides an integrated platform for seamless healthcare management, improving accessibility and efficiency of healthcare services. The application offers a unified solution to connect patients with healthcare providers, manage appointments, access medical records, and streamline healthcare processes.',
+      technologies: ['Java', 'Android SDK', 'XML', 'SQLite', 'Android Studio', 'Material Design', 'Healthcare APIs'],
+      features: [
+        'Integrated healthcare service platform',
+        'Patient-provider connectivity',
+        'Appointment scheduling system',
+        'Medical records management',
+        'Healthcare service discovery',
+        'User-friendly interface design',
+        'Secure data handling',
+        'Real-time healthcare updates',
+        'Multi-service integration',
+        'Accessibility optimization'
+      ],
+      impact: 'Significantly improves healthcare accessibility and efficiency by providing a unified platform for healthcare management, reducing service fragmentation.',
+      icon: Smartphone,
+      color: 'from-green-500 to-blue-500',
+      status: 'Completed',
+      duration: '5 months',
+      complexity: 'High'
+    },
+    {
       id: 'dental-clinic',
       title: 'Dental Clinic Appointment Scheduling System',
       category: 'systems',
@@ -222,14 +253,86 @@ const Projects = () => {
       status: 'Completed',
       duration: '3 months',
       complexity: 'High'
+    },
+    {
+      id: 'network-infrastructure',
+      title: 'Multi-Campus Network Infrastructure Design',
+      category: 'networking',
+      shortDescription: 'University network architecture design using OSPF routing protocol with centralized DHCP and DNS.',
+      description: 'Designed and implemented a comprehensive network architecture for university campuses using advanced networking protocols. The project involved configuring OSPF routing protocol for efficient inter-campus communication and implementing centralized DHCP and DNS servers for dynamic IP management across multiple campus locations.',
+      technologies: ['Cisco Packet Tracer', 'OSPF Protocol', 'DHCP Server', 'DNS Server', 'Network Architecture', 'Campus Networking'],
+      features: [
+        'Multi-campus network topology design',
+        'OSPF routing protocol implementation',
+        'Centralized DHCP server configuration',
+        'DNS server setup and management',
+        'Dynamic IP address management',
+        'Inter-campus connectivity optimization',
+        'Network security implementation',
+        'Scalable infrastructure design'
+      ],
+      impact: 'Provides efficient and scalable network infrastructure for educational institutions with multiple campus locations.',
+      icon: Network,
+      color: 'from-cyan-500 to-blue-500',
+      status: 'Completed',
+      duration: '3 months',
+      complexity: 'High'
+    },
+    {
+      id: 'parity-code-converter',
+      title: '4-bit Odd Parity Code Converter',
+      category: 'hardware',
+      shortDescription: 'Digital logic circuit design for 4-bit to 5-bit odd parity code conversion.',
+      description: 'Designed and implemented a 4-bit code converter that generates odd parity for error detection in digital communication systems. The circuit converts a 4-bit input to a 5-bit output by adding a parity bit that ensures an odd number of 1s in the output. This project demonstrates practical application of digital logic design principles for data integrity in transmission systems.',
+      technologies: ['Digital Logic Design', 'Boolean Algebra', 'Logic Gates', 'Circuit Design', 'Parity Generation', 'Error Detection'],
+      features: [
+        '4-bit to 5-bit code conversion',
+        'Odd parity bit generation',
+        'Error detection capability',
+        'Boolean logic implementation',
+        'Truth table optimization',
+        'Hardware circuit design',
+        'Data integrity assurance',
+        'Transmission error identification'
+      ],
+      impact: 'Essential for reliable digital data transmission and error detection in communication systems.',
+      icon: Cpu,
+      color: 'from-indigo-500 to-purple-500',
+      status: 'Completed',
+      duration: '2 months',
+      complexity: 'Medium'
+    },
+    {
+      id: 'voltage-divider',
+      title: 'Multi-Output Voltage Divider Circuit',
+      category: 'hardware',
+      shortDescription: 'Voltage divider circuit design providing 10V, 5V, and 3V outputs from a single 10V DC supply.',
+      description: 'Designed and built a practical voltage divider circuit that converts a single 10V DC supply into multiple voltage levels (10V, 5V, and 3V) for low current electrical applications. The project involved calculating appropriate resistor values, implementing switching mechanisms for voltage selection, and validating the design through practical measurements using multimeters and voltmeters.',
+      technologies: ['Analog Electronics', 'Circuit Design', 'Voltage Division', 'Resistor Networks', 'DC Analysis', 'Multimeter Testing'],
+      features: [
+        'Multi-voltage output generation',
+        'Voltage division rule implementation',
+        'Switch-based voltage selection',
+        '10V, 5V, and 3V output levels',
+        'Low current circuit compatibility',
+        'Practical circuit validation',
+        'Resistor network optimization',
+        'Measurement and testing procedures'
+      ],
+      impact: 'Provides cost-effective solution for multiple voltage requirements in electronic circuits and prototyping.',
+      icon: Zap,
+      color: 'from-yellow-500 to-red-500',
+      status: 'Completed',
+      duration: '1 month',
+      complexity: 'Low'
     }
   ];
 
   const stats = [
-    { label: 'Total Projects', value: '9', icon: Code, color: 'from-purple-500 to-blue-500' },
+    { label: 'Total Projects', value: '13', icon: Code, color: 'from-purple-500 to-blue-500' },
     { label: 'AI/ML Projects', value: '6', icon: Brain, color: 'from-emerald-500 to-teal-500' },
-    { label: 'Technologies Used', value: '25+', icon: Zap, color: 'from-yellow-500 to-orange-500' },
-    { label: 'Featured Projects', value: '2', icon: Star, color: 'from-pink-500 to-rose-500' }
+    { label: 'Technologies Used', value: '40+', icon: Zap, color: 'from-yellow-500 to-orange-500' },
+    { label: 'Featured Projects', value: '3', icon: Star, color: 'from-pink-500 to-rose-500' }
   ];
 
   const filteredProjects = projects.filter(project => {
