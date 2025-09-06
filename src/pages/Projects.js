@@ -70,7 +70,8 @@ const Projects = () => {
       color: 'from-emerald-500 to-teal-500',
       status: 'Completed',
       duration: '6 months',
-      complexity: 'High'
+      complexity: 'High',
+      githubUrl: 'https://github.com/tasnovahaque/TB_Detection'
     },
     {
       id: 'anemia-analysis',
@@ -92,7 +93,8 @@ const Projects = () => {
       color: 'from-red-500 to-pink-500',
       status: 'Completed',
       duration: '4 months',
-      complexity: 'Medium'
+      complexity: 'Medium',
+      githubUrl: 'https://github.com/tasnovahaque/Anemia-CBC-Analysis'
     },
     {
       id: 'sentiment-analysis',
@@ -114,7 +116,8 @@ const Projects = () => {
       color: 'from-blue-500 to-indigo-500',
       status: 'Completed',
       duration: '3 months',
-      complexity: 'Medium'
+      complexity: 'Medium',
+      githubUrl: 'https://github.com/tasnovahaque/Sentiment_analysiss'
     },
     {
       id: 'loan-approval',
@@ -136,7 +139,8 @@ const Projects = () => {
       color: 'from-yellow-500 to-orange-500',
       status: 'Completed',
       duration: '5 months',
-      complexity: 'High'
+      complexity: 'High',
+      githubUrl: 'https://github.com/Dilrubakter/AI-XAI-object-detection/tree/main/Assignment_1'
     },
     {
       id: 'co2-prediction',
@@ -158,7 +162,8 @@ const Projects = () => {
       color: 'from-green-500 to-emerald-500',
       status: 'Completed',
       duration: '3 months',
-      complexity: 'Medium'
+      complexity: 'Medium',
+      githubUrl: 'https://github.com/tasnovahaque/carbon_emission_prediction'
     },
     {
       id: 'acoustic-classification',
@@ -180,7 +185,8 @@ const Projects = () => {
       color: 'from-purple-500 to-indigo-500',
       status: 'Completed',
       duration: '2 months',
-      complexity: 'Medium'
+      complexity: 'Medium',
+      githubUrl: 'https://github.com/tasnovahaque/Acoustic-Environment-Classification'
     },
     {
       id: 'ewu-portal',
@@ -203,7 +209,8 @@ const Projects = () => {
       color: 'from-blue-500 to-cyan-500',
       status: 'Completed',
       duration: '4 months',
-      complexity: 'High'
+      complexity: 'High',
+      githubUrl: 'https://github.com/tasnovahaque/Ewu_portal'
     },
     {
       id: 'healbee-app',
@@ -252,7 +259,8 @@ const Projects = () => {
       color: 'from-teal-500 to-green-500',
       status: 'Completed',
       duration: '3 months',
-      complexity: 'High'
+      complexity: 'High',
+      githubUrl: 'https://github.com/tasnovahaque/Dental-Clinic-Problem'
     },
     {
       id: 'network-infrastructure',
@@ -276,7 +284,8 @@ const Projects = () => {
       color: 'from-cyan-500 to-blue-500',
       status: 'Completed',
       duration: '3 months',
-      complexity: 'High'
+      complexity: 'High',
+      githubUrl: 'https://github.com/tasnovahaque/CSE405_project'
     },
     {
       id: 'parity-code-converter',
@@ -393,7 +402,12 @@ const Projects = () => {
               {project.duration}
             </span>
           </div>
-          <ChevronRight className="w-5 h-5 text-purple-400" />
+          <div className="flex items-center gap-2">
+            {project.githubUrl && (
+              <Github className="w-4 h-4 text-gray-400" />
+            )}
+            <ChevronRight className="w-5 h-5 text-purple-400" />
+          </div>
         </div>
       </div>
     );
@@ -465,13 +479,28 @@ const Projects = () => {
             </div>
 
             {/* Impact */}
-            <div className="bg-white/5 border border-white/10 rounded-xl p-4 sm:p-6">
+            <div className="bg-white/5 border border-white/10 rounded-xl p-4 sm:p-6 mb-6">
               <h3 className="text-lg sm:text-xl font-bold text-white mb-3 flex items-center gap-2">
                 <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400" />
                 Project Impact
               </h3>
               <p className="text-gray-300 leading-relaxed text-sm sm:text-base">{project.impact}</p>
             </div>
+
+            {/* GitHub Repository Link */}
+            {project.githubUrl && (
+              <div className="flex justify-center">
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 font-semibold flex items-center gap-3 text-sm sm:text-base border border-gray-600 hover:border-gray-500"
+                >
+                  <Github className="w-5 h-5" />
+                  View Source Code
+                </a>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -599,7 +628,7 @@ const Projects = () => {
                 Get In Touch
               </a>
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/tasnovahaque"
                 className="px-6 py-3 sm:px-8 sm:py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 font-semibold flex items-center justify-center gap-2 text-sm sm:text-base"
               >
                 <Github className="w-4 h-4 sm:w-5 sm:h-5" />

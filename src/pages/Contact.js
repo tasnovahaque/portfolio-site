@@ -148,17 +148,15 @@ function Contact() {
           <p className={`text-sm sm:text-base ${darkMode ? 'text-purple-300' : 'text-gray-700'}`}><strong>🏠 Address:</strong> Dhaka, Bangladesh</p>
           <p className={`mt-4 text-sm sm:text-base ${darkMode ? 'text-purple-400' : 'text-purple-600'}`}>
             🔗{' '}
-            <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="underline hover:text-purple-300 transition">
+            <a href="https://www.linkedin.com/in/tasnova-haque-nova/" target="_blank" rel="noopener noreferrer" className="underline hover:text-purple-300 transition">
               LinkedIn
             </a>{' '}
             |{' '}
-            <a href="https://github.com/yourgithub" target="_blank" rel="noopener noreferrer" className="underline hover:text-purple-300 transition">
+            <a href="https://github.com/tasnovahaque" target="_blank" rel="noopener noreferrer" className="underline hover:text-purple-300 transition">
               GitHub
             </a>{' '}
             |{' '}
-            <a href="https://kaggle.com/yourkaggle" target="_blank" rel="noopener noreferrer" className="underline hover:text-purple-300 transition">
-              Kaggle
-            </a>
+            
           </p>
         </div>
       </div>
